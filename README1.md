@@ -108,28 +108,9 @@ Pour le 1er sprint, nous avons choisi :
 |  | Un mode de paiement choisi |  |  |  |  | T |
 | **Postcondition** | Recevoir un mail de confirmation | F | F | F | F | T |
 | **Nombre de jeux de tests** | 2 | 2 | 2*n | 1 | 1 |
-•	Cas d’utilisation : Passer une commande
-Acteur principal : Client
-Préconditions
-Le client est connecté au back-office (interface client). ∧
-Il a un panier non vide ∧
-Le produit est disponible en stock avec la quantité désirée. ∧
-Les informations de livraison sont spécifiées. ∧
-Le client choisit un mode de paiement adéquat. 
-Postconditions
-La commande est vérifiée par l’admin et confirmée. ∧
-Le client recoit un mail de confirmation.
 
+---
 
-		1	2	3	4	5
-Préconditions	Client connecté	F	T	T	T	T
-	Panier non vide		F	T	T	T
-	Quantité disponible en stock			F	T	T
-	Informations de livraison fournies				F	T
-	Un mode de paiement choisi					
-T
-Postcondition	Recevoir un mail de confirmation 	F	F	F	F	T
-	Nombre de jeux de tests	2	2	2*n	1	1
 
 
 ## Cas d'utilisation de Haute Priorité
