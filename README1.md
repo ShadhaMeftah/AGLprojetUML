@@ -1,5 +1,5 @@
 # Présentation du projet
-- **Auteurs** : Eya Krida / Shadha Mefteh
+- **Auteurs** : Eya Krida / Shadha Mefteh / Eya Dimassi
 - **Date** : 04/04/2025
 - **Sujet** : Site de e-commerce
 
@@ -130,3 +130,40 @@ Préconditions	Client connecté	F	T	T	T	T
 T
 Postcondition	Recevoir un mail de confirmation 	F	F	F	F	T
 	Nombre de jeux de tests	2	2	2*n	1	1
+
+
+## Cas d'utilisation de Haute Priorité
+### Cas d'utilisation 1 : Connexion de l'utilisateur
+![Diagramme de connexion](diagrammes/connexion.png)
+
+#### Table de décision pour la connexion de l'utilisateur :
+| Condition                        | Règle 1 | Règle 2 | Règle 3 | Règle 4 |
+|-----------------------------------|---------|---------|---------|---------|
+| Utilisateur inscrit              | Oui     | Oui     | Non     | Non     |
+| Mot de passe correct             | Oui     | Non     | Oui     | Non     |
+| **Action**                        | Connecter l'utilisateur | Afficher une erreur | Afficher une erreur | Afficher une erreur |
+
+---
+### Cas d'utilisation 2 : Ajouter un produit au panier
+![Diagramme de panier](diagrammes/panier.png)
+
+#### Table de décision pour l'ajout d'un produit au panier :
+| Condition                        | Règle 1 | Règle 2 | Règle 3 | Règle 4 |
+|-----------------------------------|---------|---------|---------|---------|
+| Produit en stock                 | Oui     | Oui     | Non     | Non     |
+| Panier de l'utilisateur vide     | Oui     | Oui     | Oui     | Oui     |
+| **Action**                        | Ajouter le produit | Ajouter le produit | Afficher une erreur | Afficher une erreur |
+
+---
+### Cas d'utilisation 3 : Passer une commande
+![Diagramme de commande](diagrammes/commande.png)
+
+#### Table de décision pour passer une commande :
+| Condition                                 | Règle 1      | Règle 2      | Règle 3      | Règle 4      |
+|-------------------------------------------|--------------|--------------|--------------|--------------|
+| Utilisateur connecté                      | Oui          | Oui          | Non          | Non          |
+| Panier vide                               | Non          | Non          | Oui          | Oui          |
+| Informations de paiement valides          | Oui          | Non          | Oui          | Non          |
+| **Action**                                | Passer la commande | Afficher une erreur | Afficher une erreur | Afficher une erreur |                           
+| Ajouter le produit | Ajouter le produit | Afficher une erreur | Afficher une erreur |
+
