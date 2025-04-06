@@ -118,33 +118,44 @@ Pour le 1er sprint, nous avons choisi :
 ![Diagramme de connexion](diagrammes/connexion.png)
 
 #### Table de décision pour la connexion de l'utilisateur :
-| Condition                        | Règle 1 | Règle 2 | Règle 3 | Règle 4 |
-|-----------------------------------|---------|---------|---------|---------|
-| Utilisateur inscrit              | Oui     | Oui     | Non     | Non     |
-| Mot de passe correct             | Oui     | Non     | Oui     | Non     |
-| **Action**                        | Connecter l'utilisateur | Afficher une erreur | Afficher une erreur | Afficher une erreur |
+|                              | 1 | 2 | 3 | 4 |
+|------------------------------|---|---|---|---|
+| **Préconditions**            |   |   |   |   |
+| Identifiant saisi            | F | T | T | T |
+| Mot de passe saisi           | T | F | T | T |
+| Identifiants valides         | T | T | F | T |
+| **Postcondition**            |   |   |   |   |
+| Connexion réussie            | F | F | F | T |
+| **Nombre de jeux de tests**  | 1 | 1 | n | 1 |
 
 ---
 ### Cas d'utilisation 2 : Ajouter un produit au panier
 ![Diagramme de panier](diagrammes/panier.png)
 
 #### Table de décision pour l'ajout d'un produit au panier :
-| Condition                        | Règle 1 | Règle 2 | Règle 3 | Règle 4 |
-|-----------------------------------|---------|---------|---------|---------|
-| Produit en stock                 | Oui     | Oui     | Non     | Non     |
-| Panier de l'utilisateur vide     | Oui     | Oui     | Oui     | Oui     |
-| **Action**                        | Ajouter le produit | Ajouter le produit | Afficher une erreur | Afficher une erreur |
+|                              | 1 | 2 | 3 | 4 |
+|------------------------------|---|---|---|---|
+| **Préconditions**            |   |   |   |   |
+| Client connecté              | F | T | T | T |
+| Produit disponible en stock  | T | F | T | T |
+| Produit non déjà dans panier | T | T | F | T |
+| Quantité demandée > 0        | T | T | T | F |
+| **Postcondition**            |   |   |   |   |
+| Produit ajouté au panier     | F | F | F | F |
+| **Nombre de jeux de tests**  | 1 | 1 | n | 1 |
 
 ---
 ### Cas d'utilisation 3 : Passer une commande
 ![Diagramme de commande](diagrammes/commande.png)
 
 #### Table de décision pour passer une commande :
-| Condition                                 | Règle 1      | Règle 2      | Règle 3      | Règle 4      |
-|-------------------------------------------|--------------|--------------|--------------|--------------|
-| Utilisateur connecté                      | Oui          | Oui          | Non          | Non          |
-| Panier vide                               | Non          | Non          | Oui          | Oui          |
-| Informations de paiement valides          | Oui          | Non          | Oui          | Non          |
-| **Action**                                | Passer la commande | Afficher une erreur | Afficher une erreur | Afficher une erreur |                           
-| Ajouter le produit | Ajouter le produit | Afficher une erreur | Afficher une erreur |
+|  | 1 | 2 | 3 | 4 | 5 |
+| --- | --- | --- | --- | --- | --- |
+| **Préconditions** | Client connecté | F | T | T | T | T |
+|  | Panier non vide |  | F | T | T |
+|  | Quantité disponible en stock |  |  | F | T |
+|  | Informations de livraison fournies |  |  |  | F | T |
+|  | Un mode de paiement choisi |  |  |  |  | T |
+| **Postcondition** | Recevoir un mail de confirmation | F | F | F | F | T |
+| **Nombre de jeux de tests** | 2 | 2 | 2*n | 1 | 1 |
 
